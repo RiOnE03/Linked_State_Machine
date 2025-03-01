@@ -1,0 +1,219 @@
+[gd_scene load_steps=29 format=3 uid="uid://vlso7bseo5mi"]
+
+[ext_resource type="Script" path="res://Linked_State_Machine/Template/Linked_State_Root.gd" id="1_y4ipe"]
+[ext_resource type="Script" path="res://Linked_State_Machine/Template/State_carrier.gd" id="2_plfbt"]
+[ext_resource type="Script" path="res://Linked_State_Machine/Example/Slot_Manager.gd" id="3_u20vk"]
+[ext_resource type="Script" path="res://Linked_State_Machine/Example/Slot.gd" id="4_87ebr"]
+[ext_resource type="PackedScene" uid="uid://u8nquyyi6mu4" path="res://Linked_State_Machine/Template/Linked_State_tree_printer.tscn" id="5_vv1jm"]
+
+[sub_resource type="Resource" id="Resource_ebyu3"]
+script = ExtResource("2_plfbt")
+state = NodePath("Slot_Manager")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_xjt5s"]
+script = ExtResource("2_plfbt")
+state = NodePath("1st")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_vflrd"]
+script = ExtResource("2_plfbt")
+state = NodePath("2nd")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_jw3rd"]
+script = ExtResource("2_plfbt")
+state = NodePath("3rd")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_y0gmb"]
+script = ExtResource("2_plfbt")
+state = NodePath("4th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_5h6mw"]
+script = ExtResource("2_plfbt")
+state = NodePath("5th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_fwjpu"]
+script = ExtResource("2_plfbt")
+state = NodePath("6th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_vp5by"]
+script = ExtResource("2_plfbt")
+state = NodePath("7th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_04sb6"]
+script = ExtResource("2_plfbt")
+state = NodePath("1st")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_xvhgg"]
+script = ExtResource("2_plfbt")
+state = NodePath("../2nd")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_1nr1m"]
+script = ExtResource("2_plfbt")
+state = NodePath("../7th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_wx7xr"]
+script = ExtResource("2_plfbt")
+state = NodePath("../3rd")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_48iio"]
+script = ExtResource("2_plfbt")
+state = NodePath("../1st")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_kd3s6"]
+script = ExtResource("2_plfbt")
+state = NodePath("../4th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_t2fgn"]
+script = ExtResource("2_plfbt")
+state = NodePath("../2nd")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_252l4"]
+script = ExtResource("2_plfbt")
+state = NodePath("../5th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_7xro1"]
+script = ExtResource("2_plfbt")
+state = NodePath("../3rd")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_rwrtr"]
+script = ExtResource("2_plfbt")
+state = NodePath("../6th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_xpncv"]
+script = ExtResource("2_plfbt")
+state = NodePath("../4th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_cyaov"]
+script = ExtResource("2_plfbt")
+state = NodePath("../7th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_m3x8a"]
+script = ExtResource("2_plfbt")
+state = NodePath("../5th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_yw6v5"]
+script = ExtResource("2_plfbt")
+state = NodePath("../1st")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[sub_resource type="Resource" id="Resource_crvun"]
+script = ExtResource("2_plfbt")
+state = NodePath("../6th")
+control = 0
+start_fresh = false
+can_trigger_out = false
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Root" type="Node" parent="."]
+script = ExtResource("1_y4ipe")
+linked_states = Array[ExtResource("2_plfbt")]([SubResource("Resource_ebyu3")])
+
+[node name="Slot_Manager" type="Node" parent="Root"]
+script = ExtResource("3_u20vk")
+all_slots = Array[ExtResource("2_plfbt")]([SubResource("Resource_xjt5s"), SubResource("Resource_vflrd"), SubResource("Resource_jw3rd"), SubResource("Resource_y0gmb"), SubResource("Resource_5h6mw"), SubResource("Resource_fwjpu"), SubResource("Resource_vp5by")])
+inputs = Array[int]([49, 50, 51, 52, 53, 54, 55])
+linked_states = Array[ExtResource("2_plfbt")]([SubResource("Resource_04sb6")])
+
+[node name="1st" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_xvhgg")
+adjacent_left_state = SubResource("Resource_1nr1m")
+
+[node name="2nd" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_wx7xr")
+adjacent_left_state = SubResource("Resource_48iio")
+
+[node name="3rd" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_kd3s6")
+adjacent_left_state = SubResource("Resource_t2fgn")
+
+[node name="4th" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_252l4")
+adjacent_left_state = SubResource("Resource_7xro1")
+
+[node name="5th" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_rwrtr")
+adjacent_left_state = SubResource("Resource_xpncv")
+
+[node name="6th" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_cyaov")
+adjacent_left_state = SubResource("Resource_m3x8a")
+
+[node name="7th" type="Node" parent="Root/Slot_Manager"]
+script = ExtResource("4_87ebr")
+adjacent_right_state = SubResource("Resource_yw6v5")
+adjacent_left_state = SubResource("Resource_crvun")
+
+[node name="Linked_Tree_Printer" parent="." node_paths=PackedStringArray("root_nodes") instance=ExtResource("5_vv1jm")]
+root_nodes = [NodePath("../Root")]
+print_periodically = true

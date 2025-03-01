@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://u8nquyyi6mu4"]
+
+[ext_resource type="Script" path="res://Linked_State_Machine/Template/State_tree_printer.gd" id="1_s45ok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib5fv"]
+bg_color = Color(0.162066, 0.162066, 0.162065, 1)
+
+[node name="Linked_Tree_Printer" type="Node" node_paths=PackedStringArray("printing_medium")]
+script = ExtResource("1_s45ok")
+printing_medium = NodePath("CanvasLayer/RichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -353.0
+offset_bottom = 411.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ib5fv")
