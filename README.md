@@ -12,15 +12,14 @@ Linked state root acts as the main root node like a tree root. It starts its lin
 ## Some Use Case Examples:
 These example are not tried and tested but only thought of as plausible applications
 
-
+### General Use Case:
 ![General Use Case](Readme_Images/General_Use_Case.png "General Use Case")
-### General Use Case
+### FPS Game Example:
 ![FPS](Readme_Images/FPS_Example.png "FPS Game Example")
-### FPS Game Example
+### Monster Evolution Line:
 ![Monster Evolution](Readme_Images/Monster_Evolution_line.png "[Monster Evolution Line")
-### Monster Evolution Line
+### Survival Game Stat System:
 ![Survival Game Stats](Readme_Images/Survival_Game_Stat_System.png "Survival Game Stat System")
-### Survival Game Stat System
 
 ## How to use it?
 For now their is no absolute documentation for how to use them but I'll try to add comments wherever seems necessary to make the working more understandable. For now please raise an issue if you don't understand anything from the already existing comments or if they're missing and I'll try to give an explanation as well as update the comments. The explanation can also be found in the Engine docs which has a desciption panel for each declared class.
