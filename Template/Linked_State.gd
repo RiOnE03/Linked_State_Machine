@@ -4,7 +4,7 @@ class_name Linked_State extends Linked_State_Root
 @export var next_states:Array[State_carrior]:
 	set(value):
 		next_states = value
-		if !is_instance_valid(next_states[next_states.size()-1]):
+		if !next_states.is_empty() and !is_instance_valid(next_states[next_states.size()-1]):
 			next_states[next_states.size()-1] = State_carrior.new()
 
 @export var is_always_active: bool = false:
@@ -52,7 +52,7 @@ func _input(event: InputEvent) -> void:
 func activate_states(states: Array[State_carrior])->void:
 	for state_carrior in states:
 		if is_instance_valid(state_carrior.Ref):
-			state_carrior.Ref.start_state(self,state_carrior.control,state_carrior.start_fresh)
+			state_carrior.Ref.start_state(self,state_carrior.control)
 			if active_states.find(state_carrior)==-1:
 				active_states.append(state_carrior)
 
@@ -65,28 +65,37 @@ func _ready() -> void:
 		setup_state_carriers(linked_states)
 		setup_state_carriers(next_states)
 		if is_always_active:
-			start_state(self,control_state,true)
+			start_state(self,control_state)
 		state_initiate()
 
 
 
-func start_state(caller_Ref: Linked_State_Root, Mode: State_carrior.control_type,start_fresh:bool)->void:
+func start_state(caller_Ref: Linked_State_Root, Mode: State_carrior.control_type)->void:
 	if caller == caller_Ref or is_always_active: return
 	caller = caller_Ref
-	control_state = Mode
 	if is_active:
-		if start_fresh:
+		if Mode == State_carrior.control_type.FULL_LINK_RESET:
 			deactive_states(active_states)
 			active_states.clear()
-			if Mode == State_carrior.control_type.FULL_CONTROL:
-				activate_states(linked_states)
+			activate_states(linked_states)
+		elif control_state!=Mode:
+			match Mode:
+				State_carrior.control_type.FULL_LINK_CONTINUE:
+					activate_states(linked_states)
+				State_carrior.control_type.ISOLATED:
+					deactive_states(active_states)
+					active_states.clear()
+	control_state = Mode
 	if is_active: return
 	is_active = true
-	if start_fresh or active_states.is_empty():
-		active_states.clear()
-		activate_states(linked_states)
-	else:
-		activate_states(active_states)
+	match Mode:
+		State_carrior.control_type.FULL_LINK_CONTINUE:
+			activate_states(linked_states if active_states.is_empty() else active_states)
+		State_carrior.control_type.FULL_LINK_RESET:
+			active_states.clear()
+			activate_states(linked_states)
+		State_carrior.control_type.ISOLATED: # This condition can be removed depending on the situation.
+			active_states.clear()
 	Enter()
 
 

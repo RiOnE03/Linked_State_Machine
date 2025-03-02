@@ -5,7 +5,7 @@ class_name Linked_State_Root extends Node
 @export var linked_states: Array[State_carrior]:
 	set(value):
 		linked_states = value
-		if !is_instance_valid(linked_states[linked_states.size()-1]):
+		if !linked_states.is_empty() and !is_instance_valid(linked_states[linked_states.size()-1]):
 			linked_states[linked_states.size()-1] = State_carrior.new()
 
 func setup_state_carriers(carriars: Array[State_carrior])->Array[State_carrior]:
@@ -29,7 +29,7 @@ func state_initiate()->void:
 func activate_states(states: Array[State_carrior])->void:
 	for state_carrior in states:
 		if is_instance_valid(state_carrior.Ref):
-			state_carrior.Ref.start_state(self,state_carrior.control,state_carrior.start_fresh)
+			state_carrior.Ref.start_state(self,state_carrior.control)
 
 func deactive_states(states: Array[State_carrior])->void:
 	for state_carrior in states:

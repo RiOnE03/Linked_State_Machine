@@ -8,7 +8,7 @@ extends Linked_State
 @export var all_slots:Array[State_carrior]:
 	set(value):
 		all_slots = value
-		if !is_instance_valid(all_slots[all_slots.size()-1]):
+		if !all_slots.is_empty() and !is_instance_valid(all_slots[all_slots.size()-1]):
 			all_slots[all_slots.size()-1] = State_carrior.new()
 
 # Change this to the type of direct Input you want to receive it will be used to directly travel to a particular state. Like direct access to primary weapon by pressing key 1.

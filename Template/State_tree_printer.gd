@@ -25,7 +25,7 @@ func repeat(count: int, character: String)->String:
 	return returner
 
 func recursive_addition(node: Linked_State_Root,text: String = "", prev_letter_count: int = 0,order: int = 0)->String:
-	text=  repeat(prev_letter_count*2,' ') + "|" +repeat(order,'-')+ ">" + node.name + '\n'
+	text =  repeat(prev_letter_count*2,' ') + "|" +repeat(order,'-')+ ">" + node.name + '\n'
 	order+=1
 	prev_letter_count += node.name.length() + 3
 	var list: Array[State_carrior] 
